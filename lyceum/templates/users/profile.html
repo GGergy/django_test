@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+{% block title %}{% trans 'feedback' %}{% endblock %}
+{% block content %}
+{% for message in messages %}
+  <div class="alert alert-info alert-dismissible text-center" role="alert">
+    {{ message }}
+  </div>
+{% endfor %}
+<div class="container">
+	<h2 class="py-3">{% trans '' %}</h2>
+	<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ user_form|crispy }}
+    {{ profile_form|crispy }}
+    <a class="btn btn-primary my-3" href="{% url 'homepage:coffee' %}" target="_blank">{% trans 'drink' %}</a>
+    <button class="btn btn-primary" type="submit">{% trans 'submit' %}</button>
+  </form>
+</div>
+{% endblock %}

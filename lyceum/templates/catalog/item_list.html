@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% trans 'catalog' %}{% endblock %}
+{% block content %}
+<div class="list-group container">
+  {% for item in items %}
+    {% ifchanged item.category.name %}
+      <h2 class="text-center text-body-secondary m-3">{{ item.category.name }}</h2>
+    {% endifchanged %}
+    {% include "includes/item_card.html" %}
+  {% endfor %}
+</div>
+
+{% endblock %}

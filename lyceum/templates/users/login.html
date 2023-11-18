@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans 'login' %}{% endblock %}
+{% block content %}
+{% with header_text="login_text" button_text="login_button" %}
+  {% include 'includes/form.html' %}
+{% endwith %}
+{% endblock %}

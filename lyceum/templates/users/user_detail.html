@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+{% load static %}
+{% block title %}{{item.name}}{% endblock %}
+{% load i18n %}
+{% block content %}
+<section class="text-center container">
+  <h1 class="fw-light m-3 text-body-secondary">{{ user.username }}</h1>
+  <div class="row py-lg-5">
+    <div class="col-lg-6 col-md-8 mx-auto">
+      {% if user.profile.image %}
+        {% thumbnail user.profile.image "300x300" crop="center" as im %}
+          <img src="{{ im.url }}" class="rounded-3" alt="...">
+        {% endthumbnail %}
+      {% else %}
+        <img src="{% static 'img/default_avatar.png' %}" class="rounded-3" alt="..." width="300" height="300">
+      {% endif %}
+      <ul class="list-group m-3">
+        <li class="list-group-item">
+          <p>{% trans 'first_name' %}:
+            {% if user.first_name %}
+              <span>{{ user.first_name }}</span>
+            {% else %}
+              <span><i>{% trans 'not_stated' %}</i></span>
+            {% endif %}
+          </p>
+        </li>
+        <li class="list-group-item">
+          <p>{% trans 'last_name' %}:
+            {% if user.last_name %}
+              <span>{{ user.last_name }}</span>
+            {% else %}
+              <span><i>{% trans 'not_stated' %}</i></span>
+            {% endif %}
+          </p>
+        </li>
+        <li class="list-group-item">
+          <p>{% trans 'birthday' %}:
+            {% if user.birthday %}
+              <span>{{ user.birthday}}</span>
+            {% else %}
+              <span><i>{% trans 'not_stated' %}</i></span>
+            {% endif %}
+          </p>
+        </li>
+        <li class="list-group-item">
+          <p>{% trans 'coffee' %}: {{ user.profile.coffee_count }}</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% trans header %}{% endblock %}
+{% block content %}
+  <div class="text-center m-3">
+    <h1>{% trans header %}</h1>
+  </div>
+<div class="list-group container">
+  {% for item in items %}
+    {% include "includes/item_card.html" %}
+  {% endfor %}
+</div>
+
+{% endblock %}

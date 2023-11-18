@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+{% block title %}{{item.name}}{% endblock %}
+{% load i18n %}
+{% block content %}
+  <section class="text-center container">
+    <h1 class="fw-light m-3 text-body-secondary g-4">{{ item.category }}</h1>
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        {% thumbnail item.main_image.image "300x300" crop="center" as im %}
+        <img src="{{ im.url }}" alt="" width="500" class="rounded-3 shadow">
+        {% endthumbnail %}
+        <h1 class="fw-light m-3">{{ item.name }}</h1>
+        <p class="lead text-body-secondary">
+          {{ item.text|safe }}
+        </p>
+        <ul class="list-group">
+          {% for tag in item.tags.all %}
+          <li class="list-group-item">{{tag.name}}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </section>
+<style>
+  .my-cssed {
+    width: 35%;
+    background-color: rgba(115, 6, 239, 0.99);
+  }
+</style>
+
+
+<div class="album py-5">
+  <div class="container">
+    <div class="row row-cols-auto align-center g-3 justify-content-center">
+      {% for image in item.images.all %}
+        <div class="col-auto align-center nav-pills">
+          {% thumbnail image.image "300x300" crop="center" as album_im %}
+            <img src="{{ album_im.url }}" alt="" width="100%" height="225" class="bd-placeholder-img card-img-top rounded ">
+          {% endthumbnail %}
+          <a href="{% url 'download:main' path=image.as_path %}" class="nav-link nav-item m-1 my-cssed text-center">
+            {% trans 'download' %}
+          </a>
+        </div>
+      {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endblock %}

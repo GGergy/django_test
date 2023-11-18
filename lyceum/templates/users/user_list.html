@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load static %}
+{% load thumbnail %}
+{% block title %}{% trans 'catalog' %}{% endblock %}
+{% block content %}
+<div class="row row-cols-auto align-center g-3 justify-content-center">
+  {% for user in users %}
+    <div class="card col-auto" style="width: 18rem;">
+      {% if user.profile.image %}
+        {% thumbnail user.profile.image "300x300" crop="center" as im %}
+          <img src="{{ im.url }}" class="card-img-top" alt="...">
+        {% endthumbnail %}
+      {% else %}
+        <img src="{% static 'img/default_avatar.png' %}" class="card-img-top" alt="...">
+      {% endif %}
+      <div class="card-body">
+        <h5 class="card-title">{{ user.username }}</h5>
+        <a href="{% url 'homepage:user_detail' user_id=user.id %}" class="btn btn-primary">{% trans 'go to' %}</a>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+{% endblock %}

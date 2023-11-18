@@ -1,0 +1,198 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-10-26 17:34+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: .\templates\about\about.html:9
+msgid "hi"
+msgstr "Hi, i'm Gergy"
+
+#: .\templates\about\about.html:10
+msgid "about_me"
+msgstr "I like playing videogames and coding"
+
+#: .\templates\homepage\home.html:7 .\templates\includes\footer.html:6
+#: .\templates\includes\header.html:11
+msgid "home"
+msgstr "Home"
+
+#: .\templates\homepage\home.html:9
+msgid "home_desc"
+msgstr "We have a lot of interesting items in our shop!"
+
+#: .\templates\homepage\home.html:12
+msgid "catalog_for_danya"
+msgstr "Item list"
+
+#: .\templates\includes\footer.html:7 .\templates\includes\header.html:12
+msgid "about"
+msgstr "About"
+
+#: .\templates\includes\footer.html:8 .\templates\includes\header.html:13
+msgid "catalog"
+msgstr "Catalog"
+
+#: .\templates\includes\header.html:7
+msgid "welcome"
+msgstr "Welcome!"
+
+msgid "en"
+msgstr "English"
+
+msgid "ru"
+msgstr "Russian"
+
+msgid "recommend"
+msgstr "We're recommended"
+
+msgid "download"
+msgstr "Download"
+
+msgid "admin"
+msgstr "Admin"
+
+msgid "new"
+msgstr "New products"
+
+msgid "friday"
+msgstr "Friday"
+
+msgid "unverified"
+msgstr "Unverified"
+
+msgid "footer"
+msgstr "Made with love <3"
+
+msgid "feedback_text"
+msgstr "Text of your feedback"
+
+msgid "feedback_text_help"
+msgstr "Write sth"
+
+msgid "feedback_name"
+msgstr "Your name"
+
+msgid "feedback_name_help"
+msgstr "What's your name?"
+
+msgid "feedback_mail"
+msgstr "Your email"
+
+msgid "feedback_mail_help"
+msgstr "Email should be correct"
+
+msgid "feedback_file"
+msgstr "Files"
+
+msgid "feedback_file_help"
+msgstr "Attach some files"
+
+msgid "submit"
+msgstr "Submit"
+
+msgid "feedback"
+msgstr "Feedback"
+
+msgid "feedback_sub"
+msgstr "Do you like us?"
+
+msgid "success"
+msgstr "Thanks for your feedback!"
+
+msgid "echo_text_label"
+msgstr "Do you want to crush something"
+
+msgid "echo_text_help"
+msgstr "I need help"
+
+msgid "form_success"
+msgstr "Thanks for your feedback!"
+
+msgid "login"
+msgstr "Login"
+
+msgid "login_text"
+msgstr "Great to see you again! Please, introduce yourself"
+
+msgid "login_button"
+msgstr "Login"
+
+msgid "drink"
+msgstr "Drink coffee"
+
+msgid "logout"
+msgstr "Logout"
+
+msgid "logout_text"
+msgstr "Comeback soon!"
+
+msgid "passchange"
+msgstr "Change password"
+
+msgid "passchange_text"
+msgstr "Don't like your current password? Change it to something different!"
+
+msgid "passchange_button"
+msgstr "Change"
+
+msgid "passreset"
+msgstr "Reset password"
+
+msgid "passreset_text"
+msgstr "Forgot your password? Try to train your memory, not everything has `reset` option. In some critical day you will forget password, and there will be no `Reset` button!"
+
+msgid "passreset_button"
+msgstr "Reset"
+
+msgid "passreset_complete"
+msgstr "Password reseted"
+
+msgid "passreseted"
+msgstr "Password reseted successfully!"
+
+msgid "passreset_done_text"
+msgstr "Great! Instructions will be send to your email"
+
+msgid "passreset_done"
+msgstr "Reset password"
+
+msgid "confirm_reset"
+msgstr "Reset confirmation"
+
+msgid "confirm_reset_text"
+msgstr "Type new password"
+
+msgid "confirm_reset_button"
+msgstr "Reset"
+
+msgid "signup"
+msgstr "Signup"
+
+msgid "signup_text"
+msgstr "Konnichiwa! Tell something about yourself"
+
+msgid "signup_button"
+msgstr "Signup"
+
+msgid "user_list"
+msgstr "User list"
+
+msgid "profile"
+msgstr "Profile"
+
+msgid "auth"
+msgstr "Authentification"

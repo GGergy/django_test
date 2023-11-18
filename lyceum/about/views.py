@@ -1,3 +1,11 @@
-# from django.shortcuts import render
+from django.shortcuts import render
 
-# Create your views here.
+
+def description(request):
+    return render(
+        request,
+        "about/about.html",
+    )
+
+
+__all__ = []

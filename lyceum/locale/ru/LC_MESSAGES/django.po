@@ -1,0 +1,197 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-10-26 17:34+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
+"(n%100>=11 && n%100<=14)? 2 : 3);\n"
+#: .\templates\about\about.html:9
+msgid "hi"
+msgstr "Привет, я Егор"
+
+#: .\templates\about\about.html:10
+msgid "about_me"
+msgstr "Я люблю играть в кампуктер и кодить"
+
+#: .\templates\homepage\home.html:7 .\templates\includes\footer.html:6
+#: .\templates\includes\header.html:11
+msgid "home"
+msgstr "Главная"
+
+#: .\templates\homepage\home.html:9
+msgid "home_desc"
+msgstr "В нашем магазине много интересных товаров!"
+
+#: .\templates\homepage\home.html:12
+msgid "catalog_for_danya"
+msgstr "Список товаров"
+
+#: .\templates\includes\footer.html:7 .\templates\includes\header.html:12
+msgid "about"
+msgstr "О проекте"
+
+#: .\templates\includes\footer.html:8 .\templates\includes\header.html:13
+msgid "catalog"
+msgstr "Каталог"
+
+#: .\templates\includes\header.html:7
+msgid "welcome"
+msgstr "Добро пожаловать!"
+
+msgid "en"
+msgstr "Английский"
+
+msgid "ru"
+msgstr "Русский"
+
+msgid "recommend"
+msgstr "Мы рекомендуем вам"
+
+msgid "download"
+msgstr "Скачать"
+
+msgid "admin"
+msgstr "Админ"
+
+msgid "new"
+msgstr "Новинки"
+
+msgid "friday"
+msgstr "Пятница"
+
+msgid "unverified"
+msgstr "Непроверенное"
+
+msgid "footer"
+msgstr "Сделано с любовью <3"
+
+msgid "feedback_text"
+msgstr "Текст сообщения"
+
+msgid "feedback_text_help"
+msgstr "Введите че нибудь"
+
+msgid "feedback_name"
+msgstr "Ваше имя"
+
+msgid "feedback_name_help"
+msgstr "Как вас зовут?"
+
+msgid "feedback_mail"
+msgstr "Ваша эл почта"
+
+msgid "feedback_mail_help"
+msgstr "Почта должна быть почтой"
+
+msgid "feedback_file"
+msgstr "Файлы"
+
+msgid "feedback_file_help"
+msgstr "Прикрепите файлики к вашему фидбеку, если хотите"
+
+msgid "submit"
+msgstr "Подтвердить"
+
+msgid "feedback"
+msgstr "Обратная связь"
+
+msgid "feedback_sub"
+msgstr "Хотите рассказать как вам все нравится?"
+
+msgid "echo_text_label"
+msgstr "Как же я люблю regex!"
+
+msgid "echo_text_help"
+msgstr "Какой help, тут уже не помочь"
+
+msgid "form_success"
+msgstr "Спасибо, что поделились своим мнением!"
+
+msgid "login"
+msgstr "Вход"
+
+msgid "login_text"
+msgstr "Рады снова вас видеть! Представьтесь, пожалуйста"
+
+msgid "login_button"
+msgstr "Войти"
+
+msgid "drink"
+msgstr "Выпить кофе"
+
+msgid "logout"
+msgstr "Выйти"
+
+msgid "logout_text"
+msgstr "Возвращайтесь снова!"
+
+msgid "passchange"
+msgstr "Сменить пароль"
+
+msgid "passchange_text"
+msgstr "Не нравится Ваш пароль? Придумайте новый!"
+
+msgid "passchange_button"
+msgstr "Сменить"
+
+msgid "passreset"
+msgstr "Сбросить пароль"
+
+msgid "passreset_text"
+msgstr "Забыли пароль? Попробуйте потренировать свою память, не везде есть опция сброса. В один день вы забудете критический для себя пароль, и кнопки `Восстановить` уже не будет!"
+
+msgid "passreset_button"
+msgstr "Сбросить"
+
+msgid "passreset_complete"
+msgstr "Пароль сброшен"
+
+msgid "passreseted"
+msgstr "Пароль успешно сброшен!"
+
+msgid "passreset_done_text"
+msgstr "Отлично! Инструкции отправлены вам на почту"
+
+msgid "passreset_done"
+msgstr "Сбросить пароль"
+
+msgid "confirm_reset"
+msgstr "Подверждение сброса"
+
+msgid "confirm_reset_text"
+msgstr "Введите новый пароль"
+
+msgid "confirm_reset_button"
+msgstr "Сменить"
+
+msgid "signup"
+msgstr "Регистрация"
+
+msgid "signup_text"
+msgstr "Здравствуйте! Расскажите о себе"
+
+msgid "signup_button"
+msgstr "Зарегистрироваться"
+
+msgid "user_list"
+msgstr "Список пользователей"
+
+msgid "profile"
+msgstr "Профиль"
+
+msgid "auth"
+msgstr "Аутентификация"

@@ -1,0 +1,28 @@
+image: python:3.11
+
+
+before_script:
+  - pip install -r requirements/test.txt
+
+stages:
+  - linting
+  - tests
+
+flake8:
+  stage: linting
+  script:
+    - flake8 . --config .flake8
+
+black:
+  stage: linting
+  image: registry.gitlab.com/pipeline-components/black:latest
+  script:
+    - cd lyceum
+    - black --check --line-length 79 -- .
+
+test:
+  stage: tests
+  script:
+    - mv test.env .env
+    - cd lyceum
+    - python manage.py test

@@ -1,0 +1,43 @@
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="ru" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8">
+    <title>{% block title %} {% endblock %}</title>
+    <link rel="icon" type="image" href="{%  static 'img/fav/favicon.ico' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/fav/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/fav/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/fav/avicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'img/fav/site.webmanifest' %}">
+    <link rel="mask-icon" href="{% static 'img/fav/safari-pinned-tab.svg' %}" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+      .content {
+        min-height: 100%;
+        margin-bottom: -50px;
+      }
+      .push {
+        height: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="content">
+    {% include "includes/header.html" %}
+      <main>
+        {% block content %}{% endblock %}
+      </main>
+    </div>
+    <div class="push"></div>
+    {% include "includes/footer.html" %}
+  </body>
+</html>

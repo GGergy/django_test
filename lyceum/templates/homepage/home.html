@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% trans 'home' %}{% endblock %}
+{% load static %}
+{% block content %}
+{% for message in messages %}
+  <div class="alert alert-info alert-dismissible text-center" role="alert">
+    {{ message }}
+  </div>
+{% endfor %}
+<div class="text-center">
+  <h3 class="display-4 fw-bold text-body-emphasis">{% trans 'home' %}</h3>
+  <div class="col-lg-6 mx-auto">
+    <p class="lead mb-4">{% trans 'home_desc' %}</p>
+    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+      <a href="{% url 'catalog:main' %}">
+        <button type="button" class="btn btn-primary btn-lg px-4 me-sm-3">{% trans 'catalog_for_danya' %}</button>
+      </a>
+    </div>
+  </div>
+  <div class="overflow-hidden" style="max-height: 30vh;">
+    <div class="container px-5">
+      <img src="{% static 'img/cat.jpeg'%}" class="border shadow-lg rounded" alt="" width="500" height="300">
+    </div>
+  </div>
+  <div class="py-3">
+    <p class="lead m-3">{% trans 'feedback_sub' %}</p>
+    <a href="{% url 'feedback:feedback' %}">
+        <button type="button" class="btn btn-primary btn-lg px-4 me-sm-3">{% trans 'feedback' %}</button>
+    </a>
+  </div>
+</div>
+<div class="align-center content">
+  <h2 class="text-center m-3">{% trans 'recommend' %}</h2>
+  <div class="list-group container">
+    {% for item in items %}
+      {% include 'includes/item_card.html'%}
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% load i18n %}
+<footer class="py-3 my-4">
+  <p class="text-center text-body-secondary">{% trans 'footer' %} <span id="yearify">{% now "Y" %}</span></p>
+  <script data-server-dt="{% now 'U' %}">
+    const client_dt = new Date(Date.now())
+    const server_dt = new Date(document.currentScript.dataset.serverDt * 1e3)
+    console.log(server_dt.toISOString())
+    let element = document.getElementById("yearify")
+    if (Math.abs(client_dt - server_dt) > 24 * 1000 * 60 * 60) {
+      element.innerHTML = server_dt.getFullYear().toString()
+    }
+    else {
+      element.innerHTML = client_dt.getFullYear().toString()
+    }
+  </script>
+</footer>

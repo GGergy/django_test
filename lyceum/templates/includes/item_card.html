@@ -1,0 +1,24 @@
+{% load i18n %}
+{% load static %}
+<a href="{% url 'catalog:item_detail_site' item_id=item.id %}" class="list-group-item list-group-item-action d-flex gap-3 py-3 rounded" aria-current="true">
+  <div class="d-flex gap-2 w-100 justify-content-around row row-cols-auto align-center g-3">
+    {% with request.resolver_match.view_name as view_name %}
+      {% if view_name != "catalog:main" %}
+        <div class="col-auto align-center text-secondary">
+          <h6>{{item.category.name}}</h6>
+        </div>
+      {% endif %}
+    {% endwith %}
+    <div class="col-auto align-center">
+      <h6>{{item.name}}</h6>
+    </div>
+    <div class="col-auto align-center">{{ item.text|truncatewords_html:10|safe }}</div>
+    <div class="col-auto align-center">
+      <ul>
+        {% for tag in item.tags.all %}
+        <li class="">{{tag.name}}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</a>

@@ -1,0 +1,9 @@
+{
+  'errors': [
+    'Some migrations were not generated or some corresponding errors and warnings were not solved',
+    'Method active was not detected in model manager (please, keep manager object in models.py)',
+    'Selection of releated object was not detected for User proxy model',
+    'Did you exclude migration commands for setting unique for email?',
+    'Only one user can fit, please use get for getting new User object'
+  ]
+}

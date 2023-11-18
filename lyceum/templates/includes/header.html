@@ -1,0 +1,35 @@
+{% load i18n %}
+{% load static %}
+<header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light rounded navbar-dark bg-dark">
+    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+        <img src="{% static 'img/logo.jpg' %}" alt="logo" class="bi me-2 rounded" width="60" height="50">
+      <span class="fs-3 m-3">{% trans 'welcome' %}</span>
+    </a>
+    <ul class="nav nav-pills">
+      {% with request.resolver_match.view_name as view_name %}
+        <li class="nav-item"><a href="{% url 'homepage:main' %}" class="nav-link {% if view_name == 'homepage:main' %}active{% endif %}">{% trans 'home' %}</a></li>
+        <li class="nav-item"><a href="{% url 'about:main' %}" class="nav-link {% if view_name == 'about:main' %}active{% endif %}">{% trans 'about' %}</a></li>
+        <li class="nav-item"><a href="{% url 'catalog:main' %}" class="nav-link {% if view_name == 'catalog:main' or view_name == 'catalog:item_detail_site' %}active{% endif %}">{% trans 'catalog' %}</a></li>
+        <li class="nav-item"><a href="{% url 'feedback:feedback' %}" class="nav-link {% if view_name == 'feedback:feedback' %}active{% endif %}">{% trans 'feedback' %}</a></li>
+        <li class="nav-item"><a href="{% url 'homepage:user_list' %}" class="nav-link {% if view_name == 'homepage:user_list' %}active{% endif %}">{% trans 'user_list' %}</a></li>
+        {% if user.is_active %}
+          <li class="nav-item"><a href="{% url 'users:profile' %}" class="nav-link {% if view_name == 'users:profile' %}active{% endif %}">{% trans 'profile' %}</a></li>
+        {% endif %}
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false">{% trans 'auth' %}</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{% url 'users:login' %}">{% trans 'login' %}</a></li>
+            <li><a class="dropdown-item" href="{% url 'users:logout' %}">{% trans 'logout' %}</a></li>
+            <li><a class="dropdown-item" href="{% url 'users:password_change' %}">{% trans 'passchange' %}</a></li>
+            <li><a class="dropdown-item" href="{% url 'users:password_reset' %}">{% trans 'passreset' %}</a></li>
+            <li><a class="dropdown-item" href="{% url 'users:signup' %}">{% trans 'signup' %}</a></li>
+          </ul>
+        </li>
+        {% if user.is_superuser %}
+          <li class="nav-item"><a href="{% url 'admin:index' %}" class="nav-link">{% trans 'admin' %}</a></li>
+        {% endif %}
+      {% endwith %}
+    </ul>
+  </nav>
+</header>

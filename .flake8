@@ -1,0 +1,21 @@
+[flake8]
+count = True
+show-source = True
+statistics = True
+inline-quotes = double
+ignore=
+    W503
+exclude =
+    venv/
+    */migrations/
+import-order-style=google
+application_import_names=
+    catalog
+    about
+    homepage
+    core
+    lyceum
+    download
+    feedback
+    users
+max-complexity = 10
