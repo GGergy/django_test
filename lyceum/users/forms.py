@@ -2,10 +2,9 @@ from datetime import datetime
 
 from django import forms
 from django.contrib.auth.forms import UserChangeForm, UserCreationForm
-from django.contrib.auth.models import User
 
 
-from users.models import Profile
+from users.models import Profile, User
 
 
 class SignUpForm(UserCreationForm):
@@ -14,6 +13,10 @@ class SignUpForm(UserCreationForm):
         self.fields["email"].required = True
         for field in self.visible_fields():
             field.field.widget.attrs["class"] = "form-control"
+
+    def save(self, *args, **kwargs):
+        instance = super().save(*args, **kwargs)
+        Profile.objects.create(user=instance)
 
     class Meta:
         model = User

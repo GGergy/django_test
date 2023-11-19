@@ -9,6 +9,7 @@ from django.contrib.auth.models import User
 from django.core.management import call_command
 
 from core.management.commands.boot import SimpleCommand
+from users.models import Profile
 
 
 class MakeApplyMigrationsCommand(SimpleCommand):
@@ -55,6 +56,7 @@ class CreateAdminCommand(SimpleCommand):
         )
         user.set_password(self.get_password())
         user.save()
+        Profile.objects.create(user=user)
         handler.stdout.write(f"Successfully created admin {user.username}")
 
 
@@ -115,18 +117,6 @@ class InstallRequirementsCommand(SimpleCommand):
             os.system("pip install -r ../requirements/dev.txt")
         if kwargs["prod"]:
             os.system("pip install -r ../requirements/prod.txt")
-
-
-class RenameEnvCommand(SimpleCommand):
-    priority = 0
-    verbose_name = "Переименование файла test.env"
-
-    @staticmethod
-    def run(handler, **kwargs):
-        if pathlib.Path("../.env").exists():
-            handler.stdout.write(".env file already exists")
-            return
-        pathlib.Path("../test.env").rename("../.env")
 
 
 __all__ = []

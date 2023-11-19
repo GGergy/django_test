@@ -37,15 +37,25 @@ class TestRegistration(TestCase):
         dt = datetime.now() + timedelta(days=1)
         dt = dt.replace(tzinfo=timezone.utc)
         mock_timezone.return_value = dt
-        self.client.post(reverse("users:activate", args=(TimestampSigner().sign("testname"),)))
+        self.client.post(
+            reverse(
+                "users:activate",
+                args=(TimestampSigner().sign("testname"),),
+            ),
+        )
         self.assertEqual(
             User.objects.get(username="testname").is_active,
             False,
         )
 
     def test_normal_activate(self):
-        self.client.post(reverse("users:activate", args=(TimestampSigner().sign("testname"),)))
+        self.client.post(
+            reverse(
+                "users:activate",
+                args=(TimestampSigner().sign("testname"),),
+            ),
+        )
         self.assertEqual(User.objects.get(username="testname").is_active, True)
 
-    
+
 __all__ = []

@@ -21,7 +21,9 @@ def signup(request):
             invite_link = request.build_absolute_uri(
                 reverse(
                     "users:activate",
-                    args=[TimestampSigner().sign(form.cleaned_data["username"])],
+                    args=[
+                        TimestampSigner().sign(form.cleaned_data["username"]),
+                    ],
                 ),
             )
             send_mail(
@@ -45,7 +47,10 @@ def signup(request):
 
 
 def activate(request, username):
-    username = TimestampSigner().unsign(username, max_age=datetime.timedelta(hours=12))
+    username = TimestampSigner().unsign(
+        username,
+        max_age=datetime.timedelta(hours=12),
+    )
     user = User.objects.get(username=username)
     if timezone.now() - user.date_joined < datetime.timedelta(hours=12):
         user.is_active = True

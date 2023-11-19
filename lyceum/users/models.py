@@ -25,7 +25,7 @@ class MyUserManager(UserManager):
         )
 
     def by_mail(self, mail):
-        return self.get_queryset().get(email=mail)
+        return self.get(email=mail)
 
     def users_list(self):
         return (
@@ -48,19 +48,13 @@ class MyUserManager(UserManager):
 
 class User(DjangoUser):
     objects = MyUserManager()
-    migrated = False
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.call_migrations()
-
-    @classmethod
-    def call_migrations(cls):
-        if not cls.migrated:
+        if not DjangoUser._meta.get_field("email").unique:
             DjangoUser._meta.get_field("email")._unique = True
             call_command("makemigrations")
             call_command("migrate")
-            cls.migrated = True
 
     def active(self):
         return self.is_active
