@@ -1,6 +1,11 @@
+import sys
+
 from django.contrib.auth.models import User as DjangoUser, UserManager
-from django.core.management import call_command
 from django.db import models
+
+
+if {"makekigrations", "migrate"}.intersection(set(sys.argv)) == {}:
+    DjangoUser._meta.get_field("email")._unique = True
 
 
 class Profile(models.Model):
@@ -19,45 +24,18 @@ class Profile(models.Model):
 
 
 class MyUserManager(UserManager):
-    def get(self, *args, **kwargs):
-        return (
-            self.get_queryset().select_related("profile").get(*args, **kwargs)
-        )
+    def get_queryset(self):
+        return super().get_queryset().select_related("profile")
+
+    def active(self):
+        return self.get_queryset().filter(is_active=True)
 
     def by_mail(self, mail):
-        return self.get(email=mail)
-
-    def users_list(self):
-        return (
-            self.get_queryset()
-            .filter(is_active=True)
-            .only(
-                "username",
-            )
-            .select_related("profile")
-        )
-
-    def user_profile(self):
-        return (
-            self.get_queryset()
-            .filter(is_active=True)
-            .only("first_name", "last_name", "username")
-            .select_related("profile")
-        )
+        return self.active().get(email=mail)
 
 
 class User(DjangoUser):
     objects = MyUserManager()
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        if not DjangoUser._meta.get_field("email").unique:
-            DjangoUser._meta.get_field("email")._unique = True
-            call_command("makemigrations")
-            call_command("migrate")
-
-    def active(self):
-        return self.is_active
 
     class Meta:
         proxy = True

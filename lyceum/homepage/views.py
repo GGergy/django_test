@@ -37,13 +37,13 @@ def echo_submit(request):
 
 
 def user_list(request):
-    users = User.objects.users_list()
+    users = User.objects.active()
     return render(request, "users/user_list.html", {"users": users})
 
 
 def user_detail(request, user_id):
     user = get_object_or_404(
-        User.objects.user_profile(),
+        User,
         pk=user_id,
     )
     return render(request, "users/user_detail.html", {"user": user})

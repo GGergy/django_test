@@ -14,10 +14,6 @@ class SignUpForm(UserCreationForm):
         for field in self.visible_fields():
             field.field.widget.attrs["class"] = "form-control"
 
-    def save(self, *args, **kwargs):
-        instance = super().save(*args, **kwargs)
-        Profile.objects.create(user=instance)
-
     class Meta:
         model = User
         fields = (
