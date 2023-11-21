@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container text-center">
+  <h1>Лучшая/худшая оценка пользователя</h1>
+  {% if best_item and worst_item %}
+    <div class="row row-cols-auto justify-content-center py-3">
+      {% with rate=best_item %}
+        {% include 'includes/rating_card.html' %}
+      {% endwith %}
+      {% with rate=worst_item %}
+        {% include 'includes/rating_card.html' %}
+      {% endwith %}
+    </div>
+  {% else %}
+    <h5>Оценок нет</h5>
+  {% endif %}
+  <h1>Статистика</h1>
+  <div>
+    <ul class="list-group">
+      <li class="list-group-item">Всего оценок: {{ rating_counts }}</li>
+      <li class="list-group-item">Средняя оценка: {{ rating_middle }}</li>
+    </ul>
+  </div>
+</div>
+{% endblock %}

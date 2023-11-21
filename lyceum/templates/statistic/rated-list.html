@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container text-center">
+  <h1>Оцененные товары</h1>
+  {% if items %}
+    <div class="row row-cols-auto justify-content-center py-3">
+    {% for item in items %}
+      {% with rate=item %}
+        {% include 'includes/rating_card.html' %}
+      {% endwith %}
+    {% endfor %}
+    </div>
+  {% else %}
+    <h5>Оценок нет</h5>
+  {% endif %}
+</div>
+{% endblock %}

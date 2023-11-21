@@ -18,4 +18,6 @@ application_import_names=
     download
     feedback
     users
+    rating
+    statistic
 max-complexity = 10

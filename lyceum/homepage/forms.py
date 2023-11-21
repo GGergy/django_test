@@ -11,7 +11,6 @@ class CoffeeForm(forms.Form):
     text = forms.CharField(
         help_text=_("echo_text_help"),
         label=_("echo_text_label"),
-        widget=forms.TextInput(attrs={"class": "form-control"}),
     )
 
 

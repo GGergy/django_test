@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load thumbnail %}
+{% block content %}
+<div class="container text-center">
+  <h1>Оценки товаров</h1>
+  <div class="row row-cols-auto justify-content-center py-3">
+  {% for item in items %}
+    <div class="card col-auto ms-3" style="width: 18rem;">
+      {% thumbnail item.item.main_image.image "300x300" crop="center" as im %}
+        <img src="{{ im.url }}" class="card-img-top" alt="...">
+      {% endthumbnail %}
+      <div class="card-body">
+        <h5 class="card-title">{{ item.item.name }}</h5>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Всего - {{ item.rating_counts }}</li>
+          <li class="list-group-item">Среднее - {{ item.rating_middle }}</li>
+          {% if item.last_bad %}
+            <li class="list-group-item">Последняя плохая - {{ item.last_bad.rating}} от {{ item.last_bad.user__username }}</li>
+          {% else %}
+            <li class="list-group-item">Последняя плохая - Нет</li>
+          {% endif %}
+          {% if item.last_good %}
+            <li class="list-group-item">Последняя хорошая - {{ item.last_good.rating}} от {{ item.last_good.user__username }}</li>
+          {% else %}
+            <li class="list-group-item">Последняя хорошая - Нет</li>
+          {% endif %}
+        </ul>
+        <a href="{% url 'catalog:item_detail_site' item_id=item.item.id %}" class="btn btn-primary mt-2">Перейти</a>
+      </div>
+    </div>
+  {% endfor %}
+  </div>
+</div>
+{% endblock %}
