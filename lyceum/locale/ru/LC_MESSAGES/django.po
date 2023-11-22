@@ -195,3 +195,9 @@ msgstr "Профиль"
 
 msgid "auth"
 msgstr "Аутентификация"
+
+msgid "birthday"
+msgstr "Именинники"
+
+msgid "birthday_bad"
+msgstr "Сегодня нет пользователя у которого ДР :("
