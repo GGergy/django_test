@@ -196,3 +196,28 @@ msgstr "Profile"
 
 msgid "auth"
 msgstr "Authentification"
+
+
+msgid "go_to"
+msgstr "Go to"
+
+msgid "statistic"
+msgstr "Statistic"
+
+msgid "rated_list"
+msgstr "Rated items"
+
+msgid "best_worst"
+msgstr "Best/Worst"
+
+msgid "item_rating_info"
+msgstr "Items statistic"
+
+msgid "rating"
+msgstr "Rating"
+
+msgid "rating_text"
+msgstr "Rate item"
+
+msgid "rating_button"
+msgstr "Rate"
