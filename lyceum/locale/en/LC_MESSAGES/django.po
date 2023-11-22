@@ -3,12 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+#: .\templates\users\profile.html:12
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-26 17:34+0300\n"
+"POT-Creation-Date: 2023-11-22 20:18+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +18,63 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\feedback\forms.py:20
+msgid "feedback_text"
+msgstr "Text of your feedback"
+
+#: .\feedback\forms.py:23
+msgid "feedback_text_help"
+msgstr "Write sth"
+
+#: .\feedback\forms.py:38
+msgid "feedback_mail"
+msgstr "Your email"
+
+#: .\feedback\forms.py:39
+msgid "feedback_name"
+msgstr "Your name"
+
+#: .\feedback\forms.py:42
+msgid "feedback_mail_help"
+msgstr "Email should be correct"
+
+#: .\feedback\forms.py:43
+msgid "feedback_name_help"
+msgstr "What's your name?"
+
+#: .\feedback\forms.py:55
+msgid "feedback_file"
+msgstr "Files"
+
+#: .\feedback\forms.py:56
+msgid "feedback_file_help"
+msgstr "Attach some files"
+
+#: .\feedback\views.py:39
+msgid "form_success"
+msgstr "Thanks for your feedback!"
+
+#: .\homepage\forms.py:12
+msgid "echo_text_help"
+msgstr "I need help"
+
+#: .\homepage\forms.py:13
+msgid "echo_text_label"
+msgstr "Do you want to crush something"
+
+#: .\lyceum\settings.py:166
+msgid "en"
+msgstr "English"
+
+#: .\lyceum\settings.py:167
+msgid "ru"
+msgstr "Russian"
+
+#: .\templates\about\about.html:3 .\templates\includes\header.html:12
+msgid "about"
+msgstr "About"
+
 #: .\templates\about\about.html:9
 msgid "hi"
 msgstr "Hi, i'm Gergy"
@@ -25,174 +83,201 @@ msgstr "Hi, i'm Gergy"
 msgid "about_me"
 msgstr "I like playing videogames and coding"
 
-#: .\templates\homepage\home.html:7 .\templates\includes\footer.html:6
+#: .\templates\catalog\item.html:42
+msgid "download"
+msgstr "Download"
+
+#: .\templates\catalog\item_list.html:3 .\templates\includes\header.html:13
+#: .\templates\users\user_list.html:5
+msgid "catalog"
+msgstr "Catalog"
+
+#: .\templates\feedback\feedback.html:4 .\templates\feedback\feedback.html:12
+#: .\templates\homepage\echo.html:6 .\templates\homepage\home.html:29
+#: .\templates\includes\header.html:14 .\templates\users\profile.html:4
+msgid "feedback"
+msgstr "Feedback"
+
+#: .\templates\feedback\feedback.html:18 .\templates\homepage\echo.html:10
+#: .\templates\users\profile.html:18
+msgid "submit"
+msgstr "Submit"
+
+#: .\templates\homepage\home.html:3 .\templates\homepage\home.html:12
 #: .\templates\includes\header.html:11
 msgid "home"
 msgstr "Home"
 
-#: .\templates\homepage\home.html:9
+#: .\templates\homepage\home.html:14
 msgid "home_desc"
 msgstr "We have a lot of interesting items in our shop!"
 
-#: .\templates\homepage\home.html:12
+#: .\templates\homepage\home.html:17
 msgid "catalog_for_danya"
 msgstr "Item list"
 
-#: .\templates\includes\footer.html:7 .\templates\includes\header.html:12
-msgid "about"
-msgstr "About"
+#: .\templates\homepage\home.html:27
+msgid "feedback_sub"
+msgstr "Do you like us?"
 
-#: .\templates\includes\footer.html:8 .\templates\includes\header.html:13
-msgid "catalog"
-msgstr "Catalog"
+#: .\templates\homepage\home.html:34
+msgid "recommend"
+msgstr "We're recommended"
+
+#: .\templates\includes\footer.html:3
+msgid "footer"
+msgstr "Made with love <3"
 
 #: .\templates\includes\header.html:7
 msgid "welcome"
 msgstr "Welcome!"
 
-msgid "en"
-msgstr "English"
-
-msgid "ru"
-msgstr "Russian"
-
-msgid "recommend"
-msgstr "We're recommended"
-
-msgid "download"
-msgstr "Download"
-
-msgid "admin"
-msgstr "Admin"
-
-msgid "new"
-msgstr "New products"
-
-msgid "friday"
-msgstr "Friday"
-
-msgid "unverified"
-msgstr "Unverified"
-
-msgid "footer"
-msgstr "Made with love <3"
-
-msgid "feedback_text"
-msgstr "Text of your feedback"
-
-msgid "feedback_text_help"
-msgstr "Write sth"
-
-msgid "feedback_name"
-msgstr "Your name"
-
-msgid "feedback_name_help"
-msgstr "What's your name?"
-
-msgid "feedback_mail"
-msgstr "Your email"
-
-msgid "feedback_mail_help"
-msgstr "Email should be correct"
-
-msgid "feedback_file"
-msgstr "Files"
-
-msgid "feedback_file_help"
-msgstr "Attach some files"
-
-msgid "submit"
-msgstr "Submit"
-
-msgid "feedback"
-msgstr "Feedback"
-
-msgid "feedback_sub"
-msgstr "Do you like us?"
-
-msgid "success"
-msgstr "Thanks for your feedback!"
-
-msgid "echo_text_label"
-msgstr "Do you want to crush something"
-
-msgid "echo_text_help"
-msgstr "I need help"
-
-msgid "form_success"
-msgstr "Thanks for your feedback!"
-
-msgid "login"
-msgstr "Login"
-
-msgid "login_text"
-msgstr "Great to see you again! Please, introduce yourself"
-
-msgid "login_button"
-msgstr "Login"
-
-msgid "drink"
-msgstr "Drink coffee"
-
-msgid "logout"
-msgstr "Logout"
-
-msgid "logout_text"
-msgstr "Comeback soon!"
-
-msgid "passchange"
-msgstr "Change password"
-
-msgid "passchange_text"
-msgstr "Don't like your current password? Change it to something different!"
-
-msgid "passchange_button"
-msgstr "Change"
-
-msgid "passreset"
-msgstr "Reset password"
-
-msgid "passreset_text"
-msgstr "Forgot your password? Try to train your memory, not everything has `reset` option. In some critical day you will forget password, and there will be no `Reset` button!"
-
-msgid "passreset_button"
-msgstr "Reset"
-
-msgid "passreset_complete"
-msgstr "Password reseted"
-
-msgid "passreseted"
-msgstr "Password reseted successfully!"
-
-msgid "passreset_done_text"
-msgstr "Great! Instructions will be send to your email"
-
-msgid "passreset_done"
-msgstr "Reset password"
-
-msgid "confirm_reset"
-msgstr "Reset confirmation"
-
-msgid "confirm_reset_text"
-msgstr "Type new password"
-
-msgid "confirm_reset_button"
-msgstr "Reset"
-
-msgid "signup"
-msgstr "Signup"
-
-msgid "signup_text"
-msgstr "Konnichiwa! Tell something about yourself"
-
-msgid "signup_button"
-msgstr "Signup"
-
+#: .\templates\includes\header.html:15
 msgid "user_list"
 msgstr "User list"
 
+#: .\templates\includes\header.html:17
 msgid "profile"
 msgstr "Profile"
 
+#: .\templates\includes\header.html:20
 msgid "auth"
 msgstr "Authentification"
+
+#: .\templates\includes\header.html:22 .\templates\users\login.html:3
+#: .\templates\users\logout.html:4
+msgid "login"
+msgstr "Login"
+
+#: .\templates\includes\header.html:23
+msgid "logout"
+msgstr "Logout"
+
+#: .\templates\includes\header.html:24 .\templates\users\password_change.html:3
+msgid "passchange"
+msgstr "Change password"
+
+#: .\templates\includes\header.html:25 .\templates\users\password_reset.html:3
+msgid "passreset"
+msgstr "Reset password"
+
+#: .\templates\includes\header.html:26 .\templates\users\signup.html:4
+msgid "signup"
+msgstr "Signup"
+
+#: .\templates\includes\header.html:30 .\templates\users\user_detail.html:38
+msgid "birthday"
+msgstr "Birthday people"
+
+#: .\templates\includes\header.html:37
+msgid "birthday_bad"
+msgstr "Today there is no user who has Birthday :("
+
+#: .\templates\includes\header.html:42
+msgid "admin"
+msgstr "Admin"
+
+#: .\templates\users\logout.html:7
+msgid "logout_text"
+msgstr "Comeback soon!"
+
+#: .\templates\users\password_change_done.html:4
+#, fuzzy
+#| msgid "passchange_button"
+msgid "passchange_done"
+msgstr "Change"
+
+#: .\templates\users\password_change_done.html:7
+#, fuzzy
+#| msgid "passchange"
+msgid "passchanged"
+msgstr "Change password"
+
+#: .\templates\users\password_reset_complete.html:3
+msgid "passreset_complete"
+msgstr "Password reseted"
+
+#: .\templates\users\password_reset_complete.html:6
+msgid "passreseted"
+msgstr "Password reseted successfully!"
+
+#: .\templates\users\password_reset_confirm.html:3
+msgid "confirm_reset"
+msgstr "Reset confirmation"
+
+#: .\templates\users\password_reset_done.html:4
+msgid "passreset_done"
+msgstr "Reset password"
+
+#: .\templates\users\password_reset_done.html:7
+msgid "passreset_done_text"
+msgstr "Great! Instructions will be send to your email"
+
+#: .\templates\users\profile.html:17
+msgid "drink"
+msgstr "Drink coffee"
+
+#: .\templates\users\signup.html:7
+msgid "signup_text"
+msgstr "Konnichiwa! Tell something about yourself"
+
+#: .\templates\users\signup.html:11
+msgid "signup_button"
+msgstr "Signup"
+
+#: .\templates\users\user_detail.html:20
+msgid "first_name"
+msgstr ""
+
+#: .\templates\users\user_detail.html:24 .\templates\users\user_detail.html:33
+#: .\templates\users\user_detail.html:42
+msgid "not_stated"
+msgstr ""
+
+#: .\templates\users\user_detail.html:29
+msgid "last_name"
+msgstr ""
+
+#: .\templates\users\user_detail.html:47
+msgid "coffee"
+msgstr ""
+
+#: .\templates\users\user_list.html:19
+msgid "go to"
+msgstr ""
+
+#~ msgid "new"
+#~ msgstr "New products"
+
+#~ msgid "friday"
+#~ msgstr "Friday"
+
+#~ msgid "unverified"
+#~ msgstr "Unverified"
+
+#~ msgid "success"
+#~ msgstr "Thanks for your feedback!"
+
+#~ msgid "login_text"
+#~ msgstr "Great to see you again! Please, introduce yourself"
+
+#~ msgid "login_button"
+#~ msgstr "Login"
+
+#~ msgid "passchange_text"
+#~ msgstr "Don't like your current password? Change it to something different!"
+
+#~ msgid "passreset_text"
+#~ msgstr ""
+#~ "Forgot your password? Try to train your memory, not everything has "
+#~ "`reset` option. In some critical day you will forget password, and there "
+#~ "will be no `Reset` button!"
+
+#~ msgid "passreset_button"
+#~ msgstr "Reset"
+
+#~ msgid "confirm_reset_text"
+#~ msgstr "Type new password"
+
+#~ msgid "confirm_reset_button"
+#~ msgstr "Reset"
