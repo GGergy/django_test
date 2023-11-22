@@ -7,6 +7,8 @@ from django.test import TestCase
 from django.urls import reverse
 from django.utils import timezone
 
+from users.models import Profile
+
 
 class TestRegistration(TestCase):
     @classmethod
@@ -56,6 +58,60 @@ class TestRegistration(TestCase):
             ),
         )
         self.assertEqual(User.objects.get(username="testname").is_active, True)
+
+
+class TestBirthdayUsers(TestCase):
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.user_birthday = User.objects.create_user(
+            username="testname_b",
+            first_name="name_b",
+            email="testmail1@ya.ru",
+            password="testPASS123",
+            is_active=False,
+        )
+        cls.profile_birthday = Profile.objects.create(
+            user=cls.user_birthday,
+            birthday=datetime.now().date(),
+        )
+
+        cls.user_not_birthday = User.objects.create_user(
+            username="testname_nb",
+            first_name="name_nb",
+            email="testmail2@ya.ru",
+            password="testPASS123",
+            is_active=False,
+        )
+        cls.profile_not_birthday = Profile.objects.create(
+            user=cls.user_not_birthday,
+            birthday="2023-11-21",
+        )
+
+    def test_context(self):
+        response = self.client.get(reverse("homepage:main"))
+        self.assertIn("birthday_users", response.context)
+
+    def test_len_context(self):
+        response = self.client.get(reverse("homepage:main"))
+        birthday_users = response.context["birthday_users"]
+
+        self.assertEqual(len(birthday_users), 1)
+
+    def test_correct_birthday(self):
+        response = self.client.get(reverse("homepage:main"))
+        birthday_users = response.context["birthday_users"]
+
+        self.assertEqual(birthday_users[0].user.first_name, "name_b")
+        self.assertEqual(birthday_users[0].user.email, "testmail1@ya.ru")
+
+    def test_uncorrect_birthday(self):
+        response = self.client.get(reverse("homepage:main"))
+        birthday_users = response.context["birthday_users"]
+
+        for i in birthday_users:
+            self.assertNotEqual(i.user.first_name, "name_nb")
+            self.assertNotEqual(i.user.email, "testmail2@ya.ru")
 
 
 __all__ = []

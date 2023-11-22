@@ -26,16 +26,18 @@
             <li><a class="dropdown-item" href="{% url 'users:signup' %}">{% trans 'signup' %}</a></li>
           </ul>
         </li>
-        {% if birthday_users %}
-          <li class="nav-item dropdown birthday-view">
-            <a class="nav-link dropdown-toggle birthday-view" data-bs-toggle="dropdown" role="button" aria-expanded="false">ДР</a>
-            <ul class="dropdown-menu birthday-view">
+        <li class="nav-item dropdown birthday-view">
+          <a class="nav-link dropdown-toggle birthday-view" data-bs-toggle="dropdown" role="button" aria-expanded="false">ДР</a>
+          <ul class="dropdown-menu birthday-view">
+            {% if birthday_users %}
               {% for user in birthday_users %}
                 <li><a class="dropdown-item birthday-view" href="{% url 'homepage:user_detail' user_id=user.user.id %}">{{ user.user.first_name }}  -  {{ user.user.email }}</a></li>
               {% endfor %}
-            </ul>
-          </li>
-        {% endif %}
+            {% else %}
+              <li>Сегодня нет пользоватлея у которго ДР :(</li>
+            {% endif %}
+          </ul>
+        </li>
         {% if user.is_superuser %}
           <li class="nav-item"><a href="{% url 'admin:index' %}" class="nav-link">{% trans 'admin' %}</a></li>
         {% endif %}
