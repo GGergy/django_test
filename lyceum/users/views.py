@@ -11,12 +11,14 @@ from django.urls import reverse, reverse_lazy
 from django.utils import timezone
 
 from users.forms import SignUpForm, UpdateProfileForm, UserUpdateForm
+from users.models import Profile
 
 
 def signup(request):
     form = SignUpForm(request.POST or None)
     if request.method == "POST" and form.is_valid():
-        form.save()
+        instance = form.save()
+        Profile.objects.create(user=instance)
         if settings.DEFAULT_USER_IS_ACTIVE and "email" in form.cleaned_data:
             invite_link = request.build_absolute_uri(
                 reverse(
