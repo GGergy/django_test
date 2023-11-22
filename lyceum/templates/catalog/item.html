@@ -25,11 +25,13 @@
           <li class="list-group-item">{% trans 'all' %} - {{ item_ratings_count }}</li>
           <li class="list-group-item border {{ item_ratings_middle|glow }}">{% trans 'avg' %} - {{ item_ratings_middle }}</li>
         </ul>
-        <div class="content">
-          {% with header_text="rating_text" button_text="rating_button" %}
-            {% include 'includes/form.html' %}
-          {% endwith %}
-        </div>
+        {% if user.is_active %}
+          <div class="content">
+            {% with header_text="rating_text" button_text="rating_button" %}
+              {% include 'includes/form.html' %}
+            {% endwith %}
+          </div>
+        {% endif %}
       </div>
     </div>
   </section>
