@@ -17,6 +17,16 @@
           <li class="nav-item"><a href="{% url 'users:profile' %}" class="nav-link {% if view_name == 'users:profile' %}active{% endif %}">{% trans 'profile' %}</a></li>
         {% endif %}
         <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false">{% trans 'statistic' %}</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{% url 'statistic:item_rating_info' %}">{% trans 'item_rating_info' %}</a></li>
+            {% if user.is_active %}
+              <li><a class="dropdown-item" href="{% url 'statistic:best_worst' %}">{% trans 'best_worst' %}</a></li>
+              <li><a class="dropdown-item" href="{% url 'statistic:rated_list' %}">{% trans 'rated_list' %}</a></li>
+            {% endif %}
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false">{% trans 'auth' %}</a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="{% url 'users:login' %}">{% trans 'login' %}</a></li>

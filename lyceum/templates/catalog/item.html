@@ -1,7 +1,8 @@
 {% extends "base.html" %}
 {% load thumbnail %}
-{% block title %}{{item.name}}{% endblock %}
+{% load glowing %}
 {% load i18n %}
+{% block title %}{{item.name}}{% endblock %}
 {% block content %}
   <section class="text-center container">
     <h1 class="fw-light m-3 text-body-secondary g-4">{{ item.category }}</h1>
@@ -19,6 +20,16 @@
           <li class="list-group-item">{{tag.name}}</li>
           {% endfor %}
         </ul>
+        <h4 class="mt-3">{% trans 'rating' %}</h4>
+        <ul class="list-group">
+          <li class="list-group-item">{% trans 'all' %} - {{ item_ratings_count }}</li>
+          <li class="list-group-item border {{ item_ratings_middle|glow }}">{% trans 'avg' %} - {{ item_ratings_middle }}</li>
+        </ul>
+        <div class="content">
+          {% with header_text="rating_text" button_text="rating_button" %}
+            {% include 'includes/form.html' %}
+          {% endwith %}
+        </div>
       </div>
     </div>
   </section>
@@ -43,7 +54,8 @@
           </a>
         </div>
       {% endfor %}
-      </div>
     </div>
   </div>
+</div>
+
 {% endblock %}

@@ -16,7 +16,7 @@
       {% endif %}
       <div class="card-body">
         <h5 class="card-title">{{ user.username }}</h5>
-        <a href="{% url 'homepage:user_detail' user_id=user.id %}" class="btn btn-primary">{% trans 'go to' %}</a>
+        <a href="{% url 'homepage:user_detail' user_id=user.id %}" class="btn btn-primary">{% trans 'go_to' %}</a>
       </div>
     </div>
   {% endfor %}

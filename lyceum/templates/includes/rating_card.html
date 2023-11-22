@@ -1,10 +1,11 @@
 {% load thumbnail %}
+{% load glowing %}
 <div class="card col-auto ms-3" style="width: 18rem;">
   {% thumbnail rate.item.main_image.image "300x300" crop="center" as im %}
     <img src="{{ im.url }}" class="card-img-top" alt="...">
   {% endthumbnail %}
   <div class="card-body">
-    <p class="border border-info text-center">{{ rate.get_rating_display }}</p>
+    <p class="border {{ rate.rating|glow }} text-center">{{ rate.get_rating_display }}</p>
     <h5 class="card-title">{{ rate.item.name }}</h5>
     <a href="{% url 'catalog:item_detail_site' item_id=rate.item.id %}" class="btn btn-primary mt-2">Перейти</a>
   </div>

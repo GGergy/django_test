@@ -1,5 +1,6 @@
 from django.db.models import Avg
 from django.shortcuts import render
+from django.utils.translation import gettext_lazy
 from django.views import generic
 
 from catalog.models import Item
@@ -35,7 +36,7 @@ class BestWorstView(generic.View):
             .get("rating__avg")
         )
         if not rating_middle:
-            rating_middle = "Нет"
+            rating_middle = gettext_lazy("no_rating")
         return render(
             request,
             self.template_name,
@@ -67,18 +68,19 @@ class ItemRatingInfoView(generic.ListView):
     def get(self, request, *args, **kwargs):
         items = (
             Item.objects.select_related("main_image")
+            .prefetch_related("ratings")
             .only("name", "main_image__image")
             .all()
         )
         answer = []
         for item in items:
-            queryset = ItemRating.objects.filter(item=item)
+            queryset = item.ratings
             rating_counts = queryset.count()
             rating_middle = queryset.aggregate(Avg("rating")).get(
                 "rating__avg",
             )
             if not rating_middle:
-                rating_middle = "Нет"
+                rating_middle = gettext_lazy("no_rating")
             last_bad = (
                 queryset.select_related("user")
                 .order_by("rating", "-created_at")

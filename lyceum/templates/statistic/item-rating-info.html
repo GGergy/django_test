@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load thumbnail %}
+{% load glowing %}
 {% block content %}
 <div class="container text-center">
   <h1>Оценки товаров</h1>
@@ -13,7 +14,7 @@
         <h5 class="card-title">{{ item.item.name }}</h5>
         <ul class="list-group list-group-flush">
           <li class="list-group-item">Всего - {{ item.rating_counts }}</li>
-          <li class="list-group-item">Среднее - {{ item.rating_middle }}</li>
+          <li class="list-group-item border {{ item.rating_middle|glow }}">Среднее - {{ item.rating_middle }}</li>
           {% if item.last_bad %}
             <li class="list-group-item">Последняя плохая - {{ item.last_bad.rating}} от {{ item.last_bad.user__username }}</li>
           {% else %}
