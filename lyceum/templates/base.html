@@ -29,6 +29,22 @@
         height: 50px;
       }
     </style>
+    <script>
+        function getCurrentDateTime() {
+            const now = new Date();
+            const year = now.getFullYear();
+            const month = (now.getMonth() + 1).toString().padStart(2, '0');
+            const day = now.getDate().toString().padStart(2, '0');
+
+            return `${year}-${month}-${day}`;
+        }
+
+        function setCookie() {
+            const userDateTime = getCurrentDateTime();
+            document.cookie = `userDate=${encodeURIComponent(userDateTime)}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
+        }
+        setCookie();
+    </script>
   </head>
   <body>
     <div class="content">

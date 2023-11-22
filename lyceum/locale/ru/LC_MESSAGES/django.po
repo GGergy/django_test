@@ -195,27 +195,3 @@ msgstr "Профиль"
 
 msgid "auth"
 msgstr "Аутентификация"
-
-msgid "go_to"
-msgstr "Перейти"
-
-msgid "statistic"
-msgstr "Статистика"
-
-msgid "rated_list"
-msgstr "Оцененные товары"
-
-msgid "best_worst"
-msgstr "Лучший/худший"
-
-msgid "item_rating_info"
-msgstr "Статистика товаров"
-
-msgid "rating"
-msgstr "Оценка"
-
-msgid "rating_text"
-msgstr "Оцените товар"
-
-msgid "rating_button"
-msgstr "Оценить"

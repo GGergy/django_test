@@ -36,6 +36,18 @@
             <li><a class="dropdown-item" href="{% url 'users:signup' %}">{% trans 'signup' %}</a></li>
           </ul>
         </li>
+        <li class="nav-item dropdown birthday-view">
+          <a class="nav-link dropdown-toggle birthday-view" data-bs-toggle="dropdown" role="button" aria-expanded="false">{% trans 'birthday' %}</a>
+          <ul class="dropdown-menu birthday-view">
+            {% if birthday_users %}
+              {% for user in birthday_users %}
+                <li><a class="dropdown-item birthday-view" href="{% url 'homepage:user_detail' user_id=user.user.id %}">{{ user.user.first_name }}  -  {{ user.user.email }}</a></li>
+              {% endfor %}
+            {% else %}
+              <li>{% trans 'birthday_bad' %}</li>
+            {% endif %}
+          </ul>
+        </li>
         {% if user.is_superuser %}
           <li class="nav-item"><a href="{% url 'admin:index' %}" class="nav-link">{% trans 'admin' %}</a></li>
         {% endif %}
