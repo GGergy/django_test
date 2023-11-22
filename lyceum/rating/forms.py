@@ -5,8 +5,10 @@ from rating.models import ItemRating
 
 
 class RatingForm(ModelForm):
-
     class Meta:
         model = ItemRating
         fields = ("rating",)
-        labels = {"rating": gettext_lazy('rating')}
+        labels = {"rating": gettext_lazy("rating")}
+
+
+__all__ = []

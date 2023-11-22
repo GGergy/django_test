@@ -68,7 +68,13 @@ class ItemManager(models.Manager):
             )
             .select_related("main_image")
             .prefetch_related("images")
-            .only("name", "text", "category__name", "main_image__image", "ratings"),
+            .only(
+                "name",
+                "text",
+                "category__name",
+                "main_image__image",
+                "ratings",
+            ),
             pk=pk,
         )
 

@@ -1,5 +1,5 @@
 from django.db.models import Avg
-from django.shortcuts import render, redirect
+from django.shortcuts import redirect, render
 from django.utils.translation import gettext_lazy
 
 from catalog.models import Item
@@ -45,7 +45,9 @@ def last_week(request):
 
 def item_detail(request, item_id):
     item = Item.objects.full_item(item_id)
-    item_ratings_middle = item.ratings.aggregate(Avg("rating")).get("rating__avg")
+    item_ratings_middle = item.ratings.aggregate(Avg("rating")).get(
+        "rating__avg",
+    )
     if not item_ratings_middle:
         item_ratings_middle = gettext_lazy("no_rating")
     item_ratings_count = item.ratings.count()
@@ -57,7 +59,11 @@ def item_detail(request, item_id):
             if rating:
                 form.save()
             else:
-                ItemRating.objects.create(user=request.user, item=item, rating=form.cleaned_data["rating"])
+                ItemRating.objects.create(
+                    user=request.user,
+                    item=item,
+                    rating=form.cleaned_data["rating"],
+                )
             return redirect("catalog:item_detail_site", item_id=item_id)
     return render(
         request,
