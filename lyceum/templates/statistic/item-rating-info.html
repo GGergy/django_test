@@ -1,15 +1,17 @@
 {% extends 'base.html' %}
 {% load thumbnail %}
 {% load glowing %}
+{% load i18n %}
+
+{% block title %}{% trans 'item_rating_info' %}{% endblock %}
+
 {% block content %}
 <div class="container text-center">
   <h1>Оценки товаров</h1>
   <div class="row row-cols-auto justify-content-center py-3">
   {% for item in items %}
     <div class="card col-auto ms-3" style="width: 18rem;">
-      {% thumbnail item.item.main_image.image "300x300" crop="center" as im %}
-        <img src="{{ im.url }}" class="card-img-top" alt="...">
-      {% endthumbnail %}
+      <img src="{{ item.item.main_image.to_300x300.url }}" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title">{{ item.item.name }}</h5>
         <ul class="list-group list-group-flush">

@@ -1,21 +1,24 @@
 {% extends 'base.html' %}
+
 {% load crispy_forms_tags %}
 {% load i18n %}
+
 {% block title %}{% trans 'feedback' %}{% endblock %}
+
 {% block content %}
-{% for message in messages %}
-  <div class="alert alert-info alert-dismissible text-center" role="alert">
-    {{ message }}
+  {% for message in messages %}
+    <div class="alert alert-info alert-dismissible text-center" role="alert">
+      {{ message }}
+    </div>
+  {% endfor %}
+  <div class="container">
+    <h2 class="py-3">{% trans 'feedback' %}</h2>
+    <form enctype="multipart/form-data" method="POST">
+      {% csrf_token %}
+      {{ form|crispy }}
+      {{ info_form|crispy }}
+      {{ file_form|crispy }}
+      <button class="btn btn-primary" type="submit">{% trans 'submit' %}</button>
+    </form>
   </div>
-{% endfor %}
-<div class="container">
-	<h2 class="py-3">{% trans 'feedback' %}</h2>
-	<form enctype="multipart/form-data" method="POST">
-    {% csrf_token %}
-    {{ form|crispy }}
-    {{ info_form|crispy }}
-    {{ file_form|crispy }}
-    <button class="btn btn-primary" type="submit">{% trans 'submit' %}</button>
-  </form>
-</div>
 {% endblock %}

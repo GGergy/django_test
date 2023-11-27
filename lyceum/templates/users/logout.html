@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
-{% load crispy_forms_tags %}
+
 {% load i18n %}
+
 {% block title %}{% trans 'login' %}{% endblock %}
+
 {% block content %}
-<div class="container">
-	<h2 class="py-3 text-center m-3">{% trans 'logout_text' %}</h2>
-</div>
+  <div class="container">
+    <h2 class="py-3 text-center m-3">{% trans 'logout_text' %}</h2>
+  </div>
 {% endblock %}

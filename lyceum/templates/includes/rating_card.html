@@ -1,9 +1,8 @@
 {% load thumbnail %}
 {% load glowing %}
+
 <div class="card col-auto ms-3" style="width: 18rem;">
-  {% thumbnail rate.item.main_image.image "300x300" crop="center" as im %}
-    <img src="{{ im.url }}" class="card-img-top" alt="...">
-  {% endthumbnail %}
+  <img src="{{ rate.item.main_image.to_300x300.url }}" class="card-img-top" alt="...">
   <div class="card-body">
     <p class="border {{ rate.rating|glow }} text-center">{{ rate.get_rating_display }}</p>
     <h5 class="card-title">{{ rate.item.name }}</h5>

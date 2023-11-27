@@ -50,6 +50,8 @@ def item_detail(request, item_id):
     )
     if not item_ratings_middle:
         item_ratings_middle = gettext_lazy("no_rating")
+    else:
+        item_ratings_middle = round(item_ratings_middle, 2)
     item_ratings_count = item.ratings.count()
     form = None
     if request.user.is_authenticated:

@@ -15,14 +15,14 @@ class BestWorstView(generic.View):
             best_item = (
                 ItemRating.objects.filter(user=request.user)
                 .select_related("item")
-                .only("item__name", "rating", "created_at")
+                .only("item__name", "rating", "created_at", "item__main_image")
                 .order_by("-rating", "-created_at")
                 .first()
             )
             worst_item = (
                 ItemRating.objects.filter(user=request.user)
                 .select_related("item")
-                .only("item__name", "rating", "created_at")
+                .only("item__name", "rating", "created_at", "item__main_image")
                 .order_by("rating", "-created_at")
                 .first()
             )
@@ -37,6 +37,8 @@ class BestWorstView(generic.View):
         )
         if not rating_middle:
             rating_middle = gettext_lazy("no_rating")
+        else:
+            rating_middle = round(rating_middle, 2)
         return render(
             request,
             self.template_name,
@@ -56,7 +58,7 @@ class RatedListView(generic.ListView):
         rated_items = (
             ItemRating.objects.filter(user=request.user)
             .select_related("item")
-            .only("item__name", "rating", "created_at")
+            .only("item__name", "rating", "created_at", "item__main_image")
             .order_by("-rating")
         )
         return render(request, self.template_name, {"items": rated_items})
@@ -81,6 +83,8 @@ class ItemRatingInfoView(generic.ListView):
             )
             if not rating_middle:
                 rating_middle = gettext_lazy("no_rating")
+            else:
+                rating_middle = round(rating_middle, 2)
             last_bad = (
                 queryset.select_related("user")
                 .order_by("rating", "-created_at")

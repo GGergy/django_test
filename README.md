@@ -4,13 +4,6 @@
 python manage.py boot --dev --username admin 
 ```
 
-# <u>Внимание!!!!!!! Если вы хотите, чтоб нормально работали картинки и были товары в бд, пропишите</u>:
-```sh
-python manage.py thumbnail clear
-```
-также необходимо перенести папку media из fixtures в корень проекта
-а также рекомендуется DEBUG=True
-
 # Создание виртуальной среды
 ```sh
 python -m venv venv

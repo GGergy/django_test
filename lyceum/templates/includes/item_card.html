@@ -1,5 +1,6 @@
 {% load i18n %}
 {% load static %}
+
 <a href="{% url 'catalog:item_detail_site' item_id=item.id %}" class="list-group-item list-group-item-action d-flex gap-3 py-3 rounded" aria-current="true">
   <div class="d-flex gap-2 w-100 justify-content-around row row-cols-auto align-center g-3">
     {% with request.resolver_match.view_name as view_name %}

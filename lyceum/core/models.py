@@ -32,7 +32,7 @@ class AbstractImageModel(models.Model):
     )
 
     def to_300x300(self):
-        return get_thumbnail(self.image, "300x300", quality=51)
+        return get_thumbnail(self.image, "300x300", quality=51, crop='center')
 
     def as_path(self):
         return self.image.name
