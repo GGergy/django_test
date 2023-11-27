@@ -7,7 +7,10 @@ class Migration(migrations.Migration):
     dependencies = [
         ("users", "0005_delete_userproxy_user"),
         ("catalog", "0017_alter_itemimage_image_alter_mainimage_image"),
-        ("rating", "0002_alter_itemrating_item_alter_itemrating_rating_and_more"),
+        (
+            "rating",
+            "0002_alter_itemrating_item_alter_itemrating_rating_and_more",
+        ),
     ]
 
     operations = [

@@ -226,3 +226,15 @@ msgstr "Rate item"
 
 msgid "rating_button"
 msgstr "Rate"
+
+msgid "all"
+msgstr "Total ratings"
+
+msgid "avg"
+msgstr "Average"
+
+msgid "your"
+msgstr "Your rating"
+
+msgid "delete_rating"
+msgstr "Delete"

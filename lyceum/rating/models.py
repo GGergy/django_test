@@ -4,8 +4,6 @@ from catalog.models import Item
 from users.models import User
 
 
-
-
 class ItemRating(models.Model):
     RATING_CHOICES = (
         ("1", "Ненависть"),
@@ -29,19 +27,7 @@ class ItemRating(models.Model):
     created_at = models.DateTimeField(auto_now=True)
 
     class Meta:
-        unique_together = ('user', 'item')
-
-    def clean(self):
-        try:
-            existing_rating = ItemRating.objects.filter(user=self.user, item=self.item).exclude(pk=self.pk)
-            if existing_rating.exists():
-                raise ValidationError('Оценка уже существует для данного пользователя и товара.')
-        except:
-            Exception()
-
-    def save(self, *args, **kwargs):
-        self.clean()
-        super().save(*args, **kwargs)
+        unique_together = ("user", "item")
 
 
 __all__ = []

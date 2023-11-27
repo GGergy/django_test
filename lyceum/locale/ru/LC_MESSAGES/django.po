@@ -226,3 +226,14 @@ msgstr "Оцените товар"
 msgid "rating_button"
 msgstr "Оценить"
 
+msgid "all"
+msgstr "Всего оценок"
+
+msgid "avg"
+msgstr "Среднее"
+
+msgid "your"
+msgstr "Ваша оценка"
+
+msgid "delete_rating"
+msgstr "Удалить"

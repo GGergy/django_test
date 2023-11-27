@@ -1,6 +1,6 @@
 from django.http import HttpResponseNotAllowed
-from django.views import generic
 from django.shortcuts import redirect
+from django.views import generic
 
 from rating.models import ItemRating
 
@@ -8,7 +8,8 @@ from rating.models import ItemRating
 class DeleteRatingView(generic.View):
     def post(self, request, item_id, *args, **kwargs):
         rating = ItemRating.objects.filter(
-            user=request.user, item_id=item_id
+            user=request.user,
+            item_id=item_id,
         ).first()
         if rating:
             rating.delete()
@@ -16,3 +17,6 @@ class DeleteRatingView(generic.View):
 
     def get(self, request, item_id, *args, **kwargs):
         return HttpResponseNotAllowed("POST")
+
+
+__all__ = []

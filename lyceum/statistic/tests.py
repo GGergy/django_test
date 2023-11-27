@@ -4,9 +4,9 @@ from django.test import TestCase
 from django.urls import reverse
 from parameterized import parameterized
 
-from users.models import User
+from catalog.models import Category, Item
 from rating.models import ItemRating
-from catalog.models import Item, Category
+from users.models import User
 
 
 class TestStatistic(TestCase):
@@ -16,10 +16,14 @@ class TestStatistic(TestCase):
         cls.user = User.objects.create_user(username="admin", password="zxc")
         cls.category = Category.objects.create(slug="zxc", name="cat1")
         cls.bad_item = Item.objects.create(
-            name="bad_item", category=cls.category, text="роскошно"
+            name="bad_item",
+            category=cls.category,
+            text="роскошно",
         )
         cls.good_item = Item.objects.create(
-            name="good_item", category=cls.category, text="роскошно"
+            name="good_item",
+            category=cls.category,
+            text="роскошно",
         )
         ItemRating.objects.create(user=cls.user, item=cls.bad_item, rating=2)
         ItemRating.objects.create(user=cls.user, item=cls.good_item, rating=5)
@@ -29,7 +33,7 @@ class TestStatistic(TestCase):
             "statistic:best_worst",
             "statistic:rated_list",
             "statistic:item_rating_info",
-        ]
+        ],
     )
     def test_endpoints(self, endpoint):
         self.client.force_login(self.user)
@@ -53,3 +57,6 @@ class TestStatistic(TestCase):
         self.assertIsInstance(response.context["worst_item"], ItemRating)
         self.assertEqual(response.context["rating_middle"], 3.5)
         self.assertEqual(response.context["rating_counts"], 2)
+
+
+__all__ = []
