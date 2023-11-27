@@ -27,6 +27,13 @@
         <ul class="list-group">
           <li class="list-group-item">{% trans 'all' %} - {{ item_ratings_count }}</li>
           <li class="list-group-item border {{ item_ratings_middle|glow }}">{% trans 'avg' %} - {{ item_ratings_middle }}</li>
+          {% if rating %}
+            <li class="list-group-item border {{ rating.rating|glow }}">{% trans 'your' %} - {{ rating.rating }}</li>
+            <form action="{% url 'rating:delete_rating' item_id=item.id %}" class="m-3" method="post">
+              {% csrf_token %}
+              <button class="btn btn-primary" type="submit">{% trans 'delete_rating' %}</button>
+            </form>
+          {% endif %}
         </ul>
         {% if user.is_active %}
           <div class="content">

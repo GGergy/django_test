@@ -3,6 +3,7 @@ from django.shortcuts import redirect, render
 from django.utils.translation import gettext_lazy
 
 from catalog.models import Item
+from django.views import generic
 from rating.forms import RatingForm
 from rating.models import ItemRating
 
@@ -44,6 +45,7 @@ def last_week(request):
 
 
 def item_detail(request, item_id):
+    print(request.method)
     item = Item.objects.full_item(item_id)
     item_ratings_middle = item.ratings.aggregate(Avg("rating")).get(
         "rating__avg",
@@ -54,6 +56,7 @@ def item_detail(request, item_id):
         item_ratings_middle = round(item_ratings_middle, 2)
     item_ratings_count = item.ratings.count()
     form = None
+    rating = None
     if request.user.is_authenticated:
         rating = item.ratings.filter(user=request.user).first()
         form = RatingForm(request.POST or None, instance=rating)
@@ -75,6 +78,7 @@ def item_detail(request, item_id):
             "item_ratings_count": item_ratings_count,
             "item_ratings_middle": item_ratings_middle,
             "form": form,
+            "rating": rating,
         },
     )
 
